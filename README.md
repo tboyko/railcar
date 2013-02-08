@@ -2,9 +2,11 @@
 
 Client Auto-Reload for Ruby on Rails.
 
-This gem will cause your visitor's browsers to automatically reload when a new release of your Rails app is deployed. This helps ensure that the DOM and JS running in a browser are not outdated.
+This gem will cause your visitor's browser to automatically reload when a new release of your Rails app is deployed. This helps ensure that the DOM and JS running in the browser are not outdated.
 
-Railcar achieves this by running as client-side javascript, monitoring the server-side availability of the currently loaded assets. If they are no longer available, Railcar assumes that a new, fingerprinted version has been generated and forces a reload.
+Railcar achieves this by running client-side javascript that monitors the server-side availability of the currently loaded assets. If they are no longer available, Railcar assumes that a new, fingerprinted version has been generated and forces a reload.
+
+**Note:** Because Rails, by default, only fingerprints assets when running in production mode, Railcar does not activate in development mode.
 
 ## Installation
 
@@ -29,8 +31,6 @@ That's it!
 ## Usage
 
 If you followed the installation steps, you're done.
-
-**Note:** Because Rails, by default, only fingerprints assets when running in production mode, Railcar will not run while in development.
 
 ## Contributing
 
