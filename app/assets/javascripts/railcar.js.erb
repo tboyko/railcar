@@ -1,0 +1,47 @@
+var Railcar = {
+	interval: 60,
+	
+	check: function() {
+		
+		// Gather list of includes
+
+		var includes = [];
+		$('script[src], link[href]').each(function() { 
+			includes.push( $(this).attr('src') || $(this).attr('href') );
+		});
+
+		// Remove remote and non-fingerprinted includes
+
+		includes = $.grep(includes, function(include) {
+			var isPath 			= /^http/i.exec(include) == null;
+			var hasFingerprint 	= /\-[0-9a-f]+\.(js|css)$/i.exec(include) != null;
+
+			return isPath && hasFingerprint;
+		});
+
+		// Reload page if expired includes exist
+
+		$.each(includes, function(_i, include) {
+			$.ajax({
+				type: 'HEAD',
+				cache: false,
+				url: include,
+				error: function() {
+					window.location.reload(true);
+				}
+			});
+		});
+
+		this.scheduleCheck();
+	},
+	
+	run: function() {
+		this.scheduleCheck();
+	},
+	
+	scheduleCheck: function() {
+		setTimeout('Railcar.check()', this.interval * 1000);
+	}
+};
+
+$(function(){ Railcar.run(); });
