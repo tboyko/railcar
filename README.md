@@ -1,6 +1,6 @@
 # Railcar
 
-**C**lient **A**uto-**R**eload for Ruby on Rails.
+Client Auto-Reload for Ruby on Rails.
 
 This gem will cause your visitor's browsers to automatically reload when a new release of your Rails app is deployed. This helps ensure that the DOM and JS running in a browser are not outdated.
 
@@ -30,7 +30,7 @@ That's it!
 
 If you followed the installation steps, you're done.
 
-Because Rails, by default, only fingerprints assets when running in production mode, Railcar will not run while in development.
+**Note:** Because Rails, by default, only fingerprints assets when running in production mode, Railcar will not run while in development.
 
 ## Contributing
 
