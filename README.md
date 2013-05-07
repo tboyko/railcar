@@ -1,4 +1,4 @@
-# Railcar
+# Railcar [![Code Climate](https://codeclimate.com/github/tboyko/railcar.png)](https://codeclimate.com/github/tboyko/railcar)
 
 Client Auto-Reload for Ruby on Rails.
 
